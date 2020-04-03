@@ -28,6 +28,7 @@
                 while (myRs.next()) {
                     Name= myRs.getString("Name");
                     Age= myRs.getString("Age");
+                    
                 }
             }
             catch (Exception exc) {

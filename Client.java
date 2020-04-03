@@ -15,6 +15,10 @@ import java.awt.event.ActionEvent;
     import javax.swing.JTextField;
     
     public class Client extends JFrame implements ActionListener {
+        /**
+         *
+         */
+        private static final long serialVersionUID = -7929505850812237390L;
         JLabel lNum;
         JTextField tNum;
         JButton bInfo;
@@ -64,15 +68,15 @@ import java.awt.event.ActionEvent;
         }
     
        public void Information() throws UnknownHostException, IOException {
-           // l fonction he4i l9itha online mnaarfesh esh tnayeek supposee 
+           // This is the function eli ki nenzlou aal button tekhdem 
+           // Tache Mtaa l function is to send data lel server hasb ma fhemt 
            //7aja marbouta bl base de donne bla bla mnaarfsh naamlha
-           //5000 he4i why ???
             Socket s = new Socket("localhost", 5000);
             ObjectOutputStream p = new ObjectOutputStream(s.getOutputStream());
-              int num = Integer.parseInt(tNum.getText());
+            int num = Integer.parseInt(tNum.getText());
             // so basically il star he4a lzmna naamlou new student fl bd dont know how
             // so it needs change
-              p.writeObject(new Student(num)); // houni tetbadel haja
+              p.writeInt(num); // Sending just the id not a Class
               p.flush();
               // Here we read the details from server
               BufferedReader response = new BufferedReader(new InputStreamReader(
@@ -83,5 +87,5 @@ import java.awt.event.ActionEvent;
               s.close();
           
         }
-    
+
     }
